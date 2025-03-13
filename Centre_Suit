@@ -1,0 +1,168 @@
+
+#include <FastLED.h>
+
+#define UPPER_PIN  D4   
+#define LOWER_PIN  D3
+#define NUM_UPPER_LEDS  230  // Number of LEDs in the upper body
+#define NUM_LOWER_LEDS  200  // Number of LEDs in the lower body
+#define BRIGHTNESS 100 
+#define LED_TYPE WS2812B
+#define COLOR_ORDER GRB
+
+CRGB upperLeds[NUM_UPPER_LEDS];
+CRGB lowerLeds[NUM_LOWER_LEDS];
+
+void setup() {
+    FastLED.addLeds<LED_TYPE, UPPER_PIN, COLOR_ORDER>(upperLeds, NUM_UPPER_LEDS);
+    FastLED.addLeds<LED_TYPE, LOWER_PIN, COLOR_ORDER>(lowerLeds, NUM_LOWER_LEDS);
+    FastLED.clear();
+    FastLED.setBrightness(BRIGHTNESS);
+    FastLED.show();
+}
+
+void loop() {
+   //delay(7000);
+   solidColorTrailEffect(CRGB::Purple,5);
+   blackout(1000);
+   setColor(CRGB::Blue,2000);
+   blackout(1000);
+   setColor(CRGB::Green,4000);
+   blackout(1000);
+   movingMultiColorEffect();
+   delay(2000);  // Adjust delay for desired speed
+   blackout(2000);
+   setColor(CRGB::Green,1000);
+   blackout(1000);  // Blackout for 1 seconds
+   setColor(CRGB::Green,2000);
+   blackout(1000);
+   rainbowEffect(upperLeds, NUM_UPPER_LEDS);  // Rainbow effect for upper body
+   rainbowEffect(lowerLeds, NUM_LOWER_LEDS);  // Rainbow effect for lower body
+   delay(1000);
+   blackout(1000);
+   djEffect(upperLeds, NUM_UPPER_LEDS);  // DJ effect for upper body
+   djEffect(lowerLeds, NUM_LOWER_LEDS);  // DJ effect for lower body
+   FastLED.show();
+   delay(20); 
+   setColor(CRGB::Blue,500);
+   blackout(1000);
+   // for fire effect.........
+   orangeShadesEffect(upperLeds, NUM_UPPER_LEDS);  // Orange shades effect for upper body
+   orangeShadesEffect(lowerLeds, NUM_LOWER_LEDS);  // Orange shades effect for lower body
+   FastLED.show();
+   delay(20);
+   blackout(7000);
+   lightUpUpper(CRGB::Red);
+   blackout(5000);
+   setColor(CRGB::Blue,2000);
+   blackout(1000);
+  
+   movingMultiColorEffect();
+   delay(2000);  // Adjust delay for desired speed
+   blackout(1000);
+   setColor(CRGB::Purple,1000);
+   setColor(CRGB::Red,4000);
+   blackout(1000);
+   movingMultiColorEffect();
+   delay(2000);
+   
+   
+}
+
+void solidColorTrailEffect(CRGB color, int delayTime) {
+    for (int i = 0; i < NUM_UPPER_LEDS; i+=3) {
+        upperLeds[i] = color;
+        upperLeds[i+1]=color;
+        upperLeds[i+2]=color;
+        
+        lowerLeds[i] = color;
+        lowerLeds[i+1]=color;
+        lowerLeds[i+2]=color;
+        FastLED.show();
+        delay(delayTime);
+    }   
+  }
+
+void setColor(CRGB color, int duration) {
+    fill_solid(upperLeds, NUM_UPPER_LEDS, color);
+    fill_solid(lowerLeds, NUM_LOWER_LEDS, color);
+    FastLED.show();
+    delay(duration);
+}
+
+
+
+
+// Function to light up the upper body LEDs
+void lightUpUpper(CRGB color) {
+    for (int i = 0; i < NUM_UPPER_LEDS; i++) {
+        upperLeds[i] = color;
+    }
+    FastLED.show();
+    delay(2000); // Delay to keep LEDs on for 2 seconds
+}
+
+// Function to light up the lower body LEDs
+void lightUpLower(CRGB color) {
+    for (int i = 0; i < NUM_LOWER_LEDS; i++) {
+        lowerLeds[i] = color;
+    }
+    FastLED.show();
+    delay(2000); // Delay to keep LEDs on for 2 seconds
+}
+
+// Blackout all LEDs for the given time (in milliseconds)
+void blackout(int duration) {
+    FastLED.clear();
+    FastLED.show();
+    delay(duration);
+}
+
+void movingMultiColorEffect() {
+    static uint8_t startHue = 0; // Start hue value
+    uint8_t hue = startHue;      // Initialize hue
+
+    for (int i = 0; i < NUM_UPPER_LEDS; i++) {
+        upperLeds[i] = CHSV(hue, 255, 255); // Set LED color using HSV model
+        hue += 256 / NUM_UPPER_LEDS;         // Increment hue to create the gradient
+    }
+     for (int i = 0; i < NUM_LOWER_LEDS; i++) {
+        lowerLeds[i] = CHSV(hue, 255, 255); // Set LED color using HSV model
+        hue += 256 / NUM_LOWER_LEDS;         // Increment hue to create the gradient
+    }
+
+    FastLED.show();
+    startHue++; // Increment start hue to create the moving effect
+   
+}}
+
+
+void rainbowEffect(CRGB* leds, int numLeds) {
+    static uint8_t hue = 0;
+    for (int i = 0; i < numLeds; i++) {
+        leds[i] = CHSV(hue + (i * 256 / numLeds), 255, 255);
+    }
+    hue++;  // Increment hue to create the moving rainbow effect
+}
+
+void djEffect(CRGB* leds, int numLeds) {
+    static uint8_t hue = 0;
+    for (int i = 0; i < numLeds; i++) {
+        leds[i] = CHSV(hue + random8(64), 255, 255);
+    }
+    hue += 1;  // Increment hue to create the moving effect
+}
+
+
+void orangeShadesEffect(CRGB* leds, int numLeds) {
+    static uint8_t hue = 20;  // Starting hue for orange color
+
+    for (int i = 0; i < numLeds; i++) {
+        uint8_t brightness = 170 + random8(85); // Create variation in brightness
+        leds[i] = CHSV(hue, 255, brightness);
+    }
+
+    FastLED.show();
+}
+
+
+
