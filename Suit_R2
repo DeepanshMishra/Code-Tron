@@ -1,4 +1,4 @@
-// Code for suit R2 Synchronised till 60 sec....
+// Code for suit R2
 
 #include <FastLED.h>
 
@@ -109,26 +109,35 @@ void loop() {
   blackout(10000);  // for 10 sec.. t = 170 - 179 sec...
 
   lightUpUpper(CRGB::Blue);  
-  blackout(1000);           // t = 180
-  lightUpLower(CRGB::Red);
-  blackout(1000);           //  t = 181
+  delay(1000); 
+  blackout(10);               // t = 180
+  lightUpLower(CRGB::Blue);
+  delay(1000); 
+  blackout(10);               //  t = 181
 
   lightUpUpper(CRGB::Blue);  
-  blackout(1000);           // t = 182
+  delay(1000); 
+  blackout(10);               // t = 182
   lightUpLower(CRGB::Blue);
-  blackout(1000);           //  t = 183
+  delay(1000); 
+  blackout(10);               //  t = 183
   
   lightUpUpper(CRGB::Blue);  
-  blackout(1000);           // t = 184
+  delay(1000); 
+  blackout(10);               // t = 184
   lightUpLower(CRGB::Blue);
-  blackout(1000);           //  t = 185
+  delay(1000); 
+  blackout(10);               //  t = 185
   
   lightUpUpper(CRGB::Blue);  
-  blackout(1000);           // t = 186
+  delay(1000); 
+  blackout(10);              // t = 186
   lightUpLower(CRGB::Blue);
-  blackout(1000);           //  t = 187
+  delay(1000); 
+  blackout(10);               //  t = 187
   lightUpUpper(CRGB::Blue);
-  blackout(1000);           // t = 188
+  delay(1000); 
+  blackout(10);               // t = 188
 
   blackout(9000);   // for 9 sec... t = 189 - 197 s
 
