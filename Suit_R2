@@ -1,4 +1,4 @@
-// Code for suit R2
+// Code for suit R2 Synchronised till 60 sec....
 
 #include <FastLED.h>
 
@@ -40,32 +40,26 @@ void loop() {
   delay(1300);
   //delay(2000);       // for t=17,18 sec   
   blackout(10);     // t = 19 s
-  setColor(CRGB::Green,500);
+  setColor(CRGB::Green,400);
   blackout(1000);            // t = 20 s
-  setColor(CRGB::Green,800);
+  setColor(CRGB::Green,500);
   blackout(200);            // t= 21 s
   setColor(CRGB::Red,3000); // t = 22,23,24 sec
   //blackout(2000);           // t = 25,26 sec
   //setColor(CRGB::Green,1000); // t = 27 s
-  blackout(11000);       //  for 9 sec... t = 28 - 36
+  blackout(11900);       //  for 9 sec... t = 28 - 36
   
-  // upper body transition with green blue color
-  movingGroupEffect(upperLeds, NUM_UPPER_LEDS);
-  movingGroupEffect(lowerLeds, NUM_LOWER_LEDS);
-
-  // Display the updated pattern
-  FastLED.show();
-  delay(4000);      // for 4 sec
+ runEffectForDuration(4000);     // for 4 sec
 
   setColor(CRGB::Blue,1000);  // t = 41 s
-  blackout(3800);       // t = 42,43,44 sec
+  blackout(3000);       // t = 42,43,44 sec
 
    orangeShadesEffect(upperLeds, NUM_UPPER_LEDS);  // fire ffect for upper body
    orangeShadesEffect(lowerLeds, NUM_LOWER_LEDS);  // fire shades effect for lower body
    FastLED.show();
    delay(6000);  // for 6 sec... t = 45-50
-  setColor(CRGB::Blue,4000); // for 4 sec...  t = 51 - 54
-  blackout(6000);   // for 6 sec t = 55 - 60
+  setColor(CRGB::Blue,3500); // for 3 sec...  t = 51 - 54
+  blackout(6200);   // for 6 sec t = 55 - 60
   setColor(CRGB::Red,5000); // for 5 sec... t = 61-65
   
   // for special effect for 3 sec.. t = 66 - 68
@@ -73,21 +67,19 @@ void loop() {
    specialEffect(3000);
 
 
-  blackout(9000);   // for 9 sec... t = 69 - 77
-  setColor(CRGB::Yellow,800);
+  blackout(8500);   // for 9 sec... t = 69 - 77
+  setColor(CRGB::Yellow,300);
   blackout(200);            // t = 78 s
-  setColor(CRGB::Yellow,800);
-  blackout(200);              // t = 79 s
-
-  blackout(4000);    // fro 4 sec... t = 80-83
+                
+  blackout(6000);    // fro 4 sec... t = 80-83
    
     // for special effect for 2 sec.. t = 84 -85
-     specialEffect(2000);
+     specialEffect(1000);
 
-  setColor(CRGB::Blue,4000);  // for 4 sec t = 86-89 s
+  setColor(CRGB::Blue,5000);  // for 4 sec t = 86-89 s
 
     // for special effect for 11 sec.. t = 90 - 100
-     specialEffect(11000);
+     specialEffect(10000);
 
   blinkLedsForDuration(CRGB::Orange, 15, 3000); // Blink in  Orange for 3 sec
   blackout(4000); // for 4 sec... t = 110 - 113
@@ -234,10 +226,31 @@ void specialEffect(int time) {
     }
 }
 
+void runEffectForDuration(unsigned long duration) {
+  unsigned long startTime = millis(); // Record the starting time
+  while (millis() - startTime < duration) { // Run effect for the specified duration
+    movingGroupEffect(upperLeds, NUM_UPPER_LEDS);
+    movingGroupEffect(lowerLeds, NUM_LOWER_LEDS);
+
+    // Display the updated pattern
+    FastLED.show();
+
+    // Adjust the delay to control the speed of the effect
+    delay(2); // Modify for smoother or faster movement
+  }
+
+  FastLED.clear(); // Turn off LEDs after the effect is finished
+  FastLED.show();
+}
+
+/*
+  Create a moving effect with groups of 100 LEDs alternating between blue and green.
+*/
+
 void movingGroupEffect(CRGB* leds, int numLeds) {
   static int offset = 0; // Tracks the current position of the pattern
 
-  int groupSize = 30; // Number of LEDs in each group
+  int groupSize = 25; // Number of LEDs in each group
   for (int i = 0; i < numLeds; i++) {
     // Calculate the group index based on the current offset
     int groupIndex = ((i + offset) / groupSize) % 2;
@@ -251,7 +264,6 @@ void movingGroupEffect(CRGB* leds, int numLeds) {
   // Increment the offset to move the pattern
   offset = (offset + 1) % groupSize; // Loop the offset back to 0 after one full cycle
 }
-
 
 void blinkLedsForDuration(CRGB color, int blinkDelay, int totalDuration) {
     unsigned long startTime = millis(); // Record the start time
