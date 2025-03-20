@@ -29,6 +29,7 @@ void setup() {
 }
 
 void loop() {
+  
   blackout(8000);   // for 8 sec t = 0 - 7 s
   solidColorTrailEffect(CRGB::Purple,5); // for 2 sec t = 8 , 9 s
   
@@ -100,27 +101,27 @@ void loop() {
     // for special effect for 11 sec.. t = 90 - 100
     
    specialEffect(8000);
-  //  ! song completed.......................
-  blackout(2000);    // t = 101 , 102 s
+  //  ! song completed.........Song 2 started.............
+  blackout(6200);    // t = 101 , 102 s
     
-  blinkLedsForDuration(CRGB::Orange, 15, 8000); // Blink in  Orange for 8 sec t = 103 - 110
+  blinkLedsForDuration(CRGB::Orange, 15, 1000); // Blink in  Orange for 8 sec t = 103 - 110
   
-  setColor(CRGB::Orange,7000);  //  for 7 sec... t = 111 - 117
-
-  multicolorRandomBlinkingEffectForSeconds(1);
-  delay(7000);  // for 7 sec... t = 118 - 124
-  blackout(5000);      // for 4 sec t = 125 - 129 s
+  setColor(CRGB::Orange,6600);  //  for 7 sec... t = 111 - 117
+  blackout(10);
+  multicolorRandomBlinkingEffectForSeconds(2);
+  //delay(7000);  // for 7 sec... t = 118 - 124
+  blackout(8000);      // for 15sec t = 125 - 129 s
   
 
-  setColor(CRGB::Yellow,800); // // for 1 sec
-  blackout(2000); //t = 130 s
+  setColor(CRGB::Yellow,1500); // // for 1 sec
+  blackout(7000); //t = 130 s
   //blackout(3000); // for 3 sec t = 131 - 132
-  setColor(CRGB::Blue,3000);  // t = 133-135 s
-  blackout(2000); // for 2 sec t = 136 , 137 s
+  setColor(CRGB::Blue,200);  // t = 133-135 s
+  blackout(3000); // for 2 sec t = 136 , 137 s
   
-   blinkLedsForDuration(CRGB::White, 15, 9000); // for 9 sec t = 138 - 146  s
-  blackout(2000);   // at  t = 147 - 148 s
-
+  blinkLedsForDuration(CRGB::White, 15, 13000); // for 8 sec t = 138 - 146  s
+  blackout(3000);   // at  t = 147 - 148 s
+  // ............. sync Done ............................
   rainbowEffect(upperLeds, NUM_UPPER_LEDS);  // Rainbow effect for upper body
   rainbowEffect(lowerLeds, NUM_LOWER_LEDS);  // Rainbow effect for lower body
   delay(15000); // for 15 sec t = 155 - 163 s
@@ -486,4 +487,3 @@ void lastEffect() {
     FastLED.show();
     startHue += 100;  // Increase the speed of the effect by adding a larger value (4 instead of 1)
 }
-
