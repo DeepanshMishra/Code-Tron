@@ -29,7 +29,7 @@ void setup() {
 }
 
 void loop() {
-  
+
   blackout(8000);   // for 8 sec t = 0 - 7 s
   solidColorTrailEffect(CRGB::Purple,5); // for 2 sec t = 8 , 9 s
   
@@ -100,13 +100,15 @@ void loop() {
   blackout(200); 
     // for special effect for 11 sec.. t = 90 - 100
     
-   specialEffect(8000);
-  //  ! song completed.........Song 2 started.............
+   specialEffect(9000);
+ 
+  //  1 song completed.........Song 2 started.............
+
   blackout(6200);    // t = 101 , 102 s
     
   blinkLedsForDuration(CRGB::Orange, 15, 1000); // Blink in  Orange for 8 sec t = 103 - 110
   
-  setColor(CRGB::Orange,6600);  //  for 7 sec... t = 111 - 117
+  setColor(CRGB::DarkOrange,6600);  //  for 7 sec... t = 111 - 117
   blackout(10);
   multicolorRandomBlinkingEffectForSeconds(2);
   //delay(7000);  // for 7 sec... t = 118 - 124
@@ -116,102 +118,145 @@ void loop() {
   setColor(CRGB::Yellow,1500); // // for 1 sec
   blackout(7000); //t = 130 s
   //blackout(3000); // for 3 sec t = 131 - 132
-  setColor(CRGB::Blue,200);  // t = 133-135 s
+  setColor(CRGB::Green,200);  // t = 133-135 s
   blackout(3000); // for 2 sec t = 136 , 137 s
   
   blinkLedsForDuration(CRGB::White, 15, 13000); // for 8 sec t = 138 - 146  s
   blackout(3000);   // at  t = 147 - 148 s
-  // ............. sync Done ............................
+ 
   rainbowEffect(upperLeds, NUM_UPPER_LEDS);  // Rainbow effect for upper body
   rainbowEffect(lowerLeds, NUM_LOWER_LEDS);  // Rainbow effect for lower body
   delay(15000); // for 15 sec t = 155 - 163 s
-  setColor(CRGB::Green,4000); // for 6 sec..  t = 164 - 169
-  blackout(3000);  // for 3 sec.. t = 168 - 170 sec...
+  //setColor(CRGB::Green,4000); // for 6 sec..  t = 164 - 169
+  blackout(7000);  // for 3 sec.. t = 168 - 170 sec...
   blinkLedsForDuration(CRGB::Purple, 15, 9000); // for 9 s.. t = 171 - 179
-  
-  setColor(CRGB::Blue,13000); // for 13 s. t = 180 - 192
-  blackout(2000);   // for 2 sec... t = 193,194 s
+  setColor(CRGB::Blue,9000); // for 13 s. t = 180 - 192
+  blackout(3600);   // for 2 sec... t = 193,194 s
 
-  setColor(CRGB::Aqua,40000); // for 40 sec t = 195 - 234 s
+
+//  .................song 3 started....................
+
+   setColor(CRGB::Aqua,36000); // for 36 sec t = 195 - 234 s
+   blinkLedsForDuration(CRGB::Aqua, 15, 4500);  
  
-  // RGB trail effect for 7 sec at t = 235 - 241
-   specialEffect(7000);
+ //  ............... 4 song started ................
+   // RGB trail effect for 7 sec at t = 235 - 241
+    specialEffect(7000);
+    blackout(1500);   // t = 242
+   setColor(CRGB::Yellow,200);  // t = 243
+    
+   blackout(1600);   // t = 244  
+  setColor(CRGB::Yellow,200); // transition from R2 to L2 and back
 
-     blackout(1000);   // t = 242
-   setColor(CRGB::Yellow,800);  // t = 243
-    blackout(200);
-   blackout(1000);   // t = 244  
-
-
-  setColor(CRGB::Yellow,4000); // transition from R2 to L2 and back
-
-  blackout(8000); // for 8 s.. t = 249 - 259 s 
+  blackout(12000); // for 8 s.. t = 249 - 259 s 
   
   rainbowEffect(upperLeds, NUM_UPPER_LEDS);  // Rainbow effect for upper body
   rainbowEffect(lowerLeds, NUM_LOWER_LEDS);  // Rainbow effect for lower body
-  delay(8000);   // for 8 sec  t = 257 - 264
-  setColor(CRGB::Blue,8000);  // for 3 sec. t = 265 - 267
-  setColor(CRGB::Yellow,3000);  // t = 268 - 270 
-  setColor(CRGB::Pink,1000);    // t = 271
- blackout(7000);          // for 7 s.. t = 272 - 278
+  delay(6900);   // for 8 sec  t = 257 - 264
+  setColor(CRGB::Blue,7000);  // for 3 sec. t = 265 - 267
  
-  setColor(CRGB::Pink,7000);  // for 4 sec t = 279 - 285
-  blackout(2000);   // t = 286 - 287
-  setColor(CRGB::Blue,2000);  // for 2s t = 288 - 289
+//............. song 4 started.................
+blackout(3500);
+  setColor(CRGB::Yellow,3500);  // t = 268 - 270 
+  setColor(CRGB::Purple,6500);    // for 6 sec t = 271
+ blackout(2000);          // for 7 s.. t = 272 - 278
+ blinkLedsForDuration(CRGB::Yellow, 15, 2000);
+ blackout(1600);
+ blinkLedsForDuration(CRGB::Yellow, 15, 2000);
+ blackout(1600);          // for 7 s.. t = 272 - 278
+ blinkLedsForDuration(CRGB::Yellow, 15, 2000);
+ blackout(1600);
+ blinkLedsForDuration(CRGB::Yellow, 15, 2000);
+  setColor(CRGB::Purple,3000);  // for 4 sec t = 279 - 285
+  blackout(3200);   // t = 286 - 287
+multicolorRandomBlinkingEffectForSeconds(7);
+blackout(1000);
+ 
+//........... song 5 started...................
+  djEffect(upperLeds, NUM_UPPER_LEDS);  // dj effect for upper body
+  djEffect(lowerLeds, NUM_LOWER_LEDS);
+  delay(8500);
+  setColor(CRGB::Green,4000);
+  blackout(5000);
+  setColor(CRGB::Green,1000);  // for 2s t = 288 - 289
+  randomColorsEffect(4000);
+  blinkLedsForDuration(CRGB::Red, 15, 4000);
   blackout(2000);             // for 2 sec t = 290 - 291
-  setColor(CRGB::Blue,2000);  // for 2s t = 292 - 293
- 
-  setColor(CRGB::Pink,6000);  // for 6 sec t = 294 - 299
+  setColor(CRGB::Blue,300); 
+  blackout(3000);
+  movingMultiColorEffect(15000);
+  //delay(15000);  
+  blinkLedsForDuration(CRGB::Yellow, 15, 2000);
+  setColor(CRGB::Yellow,5000);
+
+//.............THE  END......................
+
+//   setColor(CRGB::Purple,6000);  // for 6 sec t = 294 - 299
   
-  blackout(1000);    // for 1s t = 300
-  setColor(CRGB::Yellow,4000);  // for 4 s  t = 301 - 304
-  blackout(3000);  // for 3 sec t = 305 - 307
-  setColor(CRGB::Pink,3000);// for 3 s. t= 308 - 310 s
+//   blackout(1000);    // for 1s t = 300
+//   setColor(CRGB::Yellow,4000);  // for 4 s  t = 301 - 304
+//   blackout(3000);  // for 3 sec t = 305 - 307
+//   setColor(CRGB::Purple,3000);// for 3 s. t= 308 - 310 s
  
-  setColor(CRGB::Green,4000);  // t = 311 - 314
-  blackout(1000);  // t = 315 s
-  setColor(CRGB::Green,5000);  // for 5 sec t = 316 - 320
+//   setColor(CRGB::Green,4000);  // t = 311 - 314
+//   blackout(1000);  // t = 315 s
+//   setColor(CRGB::Green,5000);  // for 5 sec t = 316 - 320
  
-  setColor(CRGB::Orange,5000); // for 5s t =  321 - 325
-  movingMultiColorEffect();
-   delay(10000); // for 10 sec.. t = 326 - 335
+//   setColor(CRGB::Orange,5000); // for 5s t =  321 - 325
+//   //movingMultiColorEffect();
+//    delay(10000); // for 10 sec.. t = 326 - 335
 
-  // code for random effect  for 9 sec t = 336 - 344
+//   // code for random effect  for 9 sec t = 336 - 344
 
- randomColorsEffect(9000); // Random colors effect for 9 seconds
+//  randomColorsEffect(9000); // Random colors effect for 9 seconds
 
 
-setColor(CRGB::Blue,800);  // t = 245
-    blackout(3100);
+// setColor(CRGB::Blue,800);  // t = 245
+//     blackout(3100);
     
- blinkLedsForDuration(CRGB::Blue, 15, 1000);  // t = 349 s
+//    // t = 349 s
   
-  // code for blinking effect  for 25 sec  till end t = 348 - 372...
+//   // code for blinking effect  for 25 sec  till end t = 348 - 372...
 
- lastEffect();
- delay(25000);
+//  lastEffect();
+//  delay(25000);
 
      
 }
+void movingMultiColorEffect(unsigned long durationMillis) {
+    unsigned long startTime = millis(); // Record the start time
 
-void movingMultiColorEffect() {
-    static uint8_t startHue = 0; // Start hue value
-    uint8_t hue = startHue;      // Initialize hue
+    // Run the effect for the specified duration
+    while (millis() - startTime < durationMillis) {
+        static uint8_t startHue = 0; // Start hue value
+        uint8_t hue = startHue;      // Initialize hue
 
-    for (int i = 0; i < NUM_UPPER_LEDS; i++) {
-        upperLeds[i] = CHSV(hue, 255, 255); // Set LED color using HSV model
-        hue += 256 / NUM_UPPER_LEDS;         // Increment hue to create the gradient
+        // Process upper LEDs
+        for (int i = 0; i < NUM_UPPER_LEDS; i++) {
+            upperLeds[i] = CHSV(hue, 255, 255); // Set LED color using HSV model
+            hue += 256 / (NUM_UPPER_LEDS + NUM_LOWER_LEDS); // Increment hue for gradient
+        }
+
+        // Process lower LEDs
+        for (int i = 0; i < NUM_LOWER_LEDS; i++) {
+            lowerLeds[i] = CHSV(hue, 255, 255); // Set LED color using HSV model
+            hue += 256 / (NUM_UPPER_LEDS + NUM_LOWER_LEDS); // Increment hue for gradient
+        }
+
+        // Show the LEDs
+        FastLED.show();
+
+        // Increment start hue to create the moving effect
+        startHue+=10;
+        delay(1);
+        // Small delay for smooth animation
+        
     }
-     for (int i = 0; i < NUM_LOWER_LEDS; i++) {
-        lowerLeds[i] = CHSV(hue, 255, 255); // Set LED color using HSV model
-        hue += 256 / NUM_LOWER_LEDS;         // Increment hue to create the gradient
-    }
 
+    // Optionally clear the LEDs after the effect runs
+    FastLED.clear();
     FastLED.show();
-    startHue++; // Increment start hue to create the moving effect
-   
 }
-
 void specialEffect(int time) {
     unsigned long startTime = millis();
     unsigned long runTime = time ; // Run for 3 seconds
@@ -235,7 +280,7 @@ void specialEffect(int time) {
         upperLeds[position] = runningColor;
         lowerLeds[position] = runningColor;
 
-        int tailLength = 8;
+        int tailLength = 10;
         for (int i = 1; i <= tailLength; i++) {
             int index = (position - i + NUM_UPPER_LEDS) % NUM_UPPER_LEDS;
             int brightness = 255 - (i * (255 / tailLength));
@@ -246,8 +291,8 @@ void specialEffect(int time) {
         FastLED.show();
 
         position = (position + 1) % NUM_UPPER_LEDS;
-        hue += 5;
-        delay(15);
+        hue += 10;
+        delay(10);
     }
 }
 
@@ -487,3 +532,4 @@ void lastEffect() {
     FastLED.show();
     startHue += 100;  // Increase the speed of the effect by adding a larger value (4 instead of 1)
 }
+
