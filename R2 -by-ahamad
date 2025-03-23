@@ -135,10 +135,10 @@ blackout(6000);   // for 5 sec t = 0 - 5 s
   blackout(4500); // for 8 s.. t = 249 - 259 s 
   //lastEffect();
   randomColorsEffect(6000);
-  blackout(4000);
+  blackout(3400);
   rainbowEffect(upperLeds, NUM_UPPER_LEDS);  // Rainbow effect for upper body
   rainbowEffect(lowerLeds, NUM_LOWER_LEDS);  // Rainbow effect for lower body
-  delay(3000);   // for 8 sec  t = 257 - 264
+  delay(3600);   // for 8 sec  t = 257 - 264
   setColor(CRGB::Blue,6000);  // for 3 sec. t = 265 - 267
   blinkLedsForDuration(CRGB::Blue, 15, 2000);
 
