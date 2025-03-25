@@ -52,12 +52,13 @@ blackout(6000);   // for 5 sec t = 0 - 5 s
   blackout(11900);     //  for 9 sec... t = 28 - 36
   
   // upper body transition with green blue color
-  movingGroupEffect(upperLeds, NUM_UPPER_LEDS);
-  movingGroupEffect(lowerLeds, NUM_LOWER_LEDS);
+  // movingGroupEffect(upperLeds, NUM_UPPER_LEDS);
+  // movingGroupEffect(lowerLeds, NUM_LOWER_LEDS);
 
-  // Display the updated pattern
-  FastLED.show();
-  delay(2000);      // for 4 sec
+  // // Display the updated pattern
+  // FastLED.show();
+  // delay(2000);     
+  runEffectForDuration(2000); // for 4 sec
   blackout(3700);
   setColor(CRGB::Blue,500);  // t = 41 s
   //blackout(4800);       // t = 42,43,44 sec
@@ -155,7 +156,9 @@ setColor(CRGB::Yellow,2000);
  blackout(1000);
  //blinkLedsForDuration(CRGB::Yellow, 15, 2000);
  // Only gloves........
-  setColor(CRGB::Red,4000);  // for 4 sec t = 279 - 285
+  lightSpecificRanges(upperLeds, NUM_UPPER_LEDS);
+    FastLED.show(); // Refresh LED colors
+    delay(4000);  // for 4 sec t = 279 - 285
   blackout(3000);   // t = 286 - 287
 multicolorRandomBlinkingEffectForSeconds(4.8);
 
@@ -180,6 +183,20 @@ multicolorRandomBlinkingEffectForSeconds(4.8);
 //.............THE  END......................   
 }
 
+
+void lightSpecificRanges(CRGB* leds, int numLeds) {
+    FastLED.clear();  // Turn off all LEDs first (rest blackout)
+
+    // Light up LEDs in the range 60 to 100
+    for (int i = 66; i <= 136 && i < numLeds; i++) {
+        upperLeds[i] = CRGB::Red;  // Set color to red
+    }
+
+    // Light up LEDs in the range 250 to 300
+    for (int i = 172; i <= 241 && i < numLeds; i++) {
+        upperLeds[i] = CRGB::Red;  // Set color to red
+    }
+}
  
 void newEffect(unsigned long durationMillis) {
     unsigned long startTime = millis(); // Record the start time
