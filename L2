@@ -44,12 +44,11 @@ void loop() {
   blackout(200);            
   setColor(CRGB::Red,3500);  
   blackout(11000);     
-  movingGroupEffect(upperLeds, NUM_UPPER_LEDS);
-  movingGroupEffect(lowerLeds, NUM_LOWER_LEDS);
-
-  // Display the updated pattern
-  FastLED.show();
-  delay(4000);     
+   //movingGroupEffect(upperLeds, NUM_UPPER_LEDS);
+  // movingGroupEffect(lowerLeds, NUM_LOWER_LEDS);
+  // FastLED.show();
+  // delay(4000);     
+  runEffectForDuration(4000);
  // blackout(3700);
   setColor(CRGB::Blue,1000);  
   blackout(4000);       
@@ -129,7 +128,10 @@ blackout(3500);
  setColor(CRGB::Yellow,2000);
  blackout(3000);
  // Only gloves........
-  setColor(CRGB::Red,4000);  // for 4 sec t = 279 - 285
+  //setColor(CRGB::Red,4000);  
+  lightSpecificRanges(upperLeds, NUM_UPPER_LEDS);
+    FastLED.show(); // Refresh LED colors
+    delay(4000);// for 4 sec t = 279 - 285
   blackout(3000);   // t = 286 - 287
 multicolorRandomBlinkingEffectForSeconds(4.8);
 /////===================song 6==========
@@ -149,6 +151,21 @@ blackout(4500);
   // Flag Design in last (Orange - White - Green)......
   blinkLedsForDuration(CRGB::Green, 15, 2000);
   setColor(CRGB::Green,5000);
+}
+
+
+void lightSpecificRanges(CRGB* leds, int numLeds) {
+    FastLED.clear();  // Turn off all LEDs first (rest blackout)
+
+    // Light up LEDs in the range 60 to 100
+    for (int i = 66; i <= 136 && i < numLeds; i++) {
+        upperLeds[i] = CRGB::Red;  // Set color to red
+    }
+
+    // Light up LEDs in the range 250 to 300
+    for (int i = 172; i <= 241 && i < numLeds; i++) {
+        upperLeds[i] = CRGB::Red;  // Set color to red
+    }
 }
 
 void specialEffect(int time) {
@@ -190,10 +207,32 @@ void specialEffect(int time) {
     }
 }
 
+
+void runEffectForDuration(unsigned long duration) {
+  unsigned long startTime = millis(); // Record the starting time
+  while (millis() - startTime < duration) { // Run effect for the specified duration
+    movingGroupEffect(upperLeds, NUM_UPPER_LEDS);
+    movingGroupEffect(lowerLeds, NUM_LOWER_LEDS);
+
+    // Display the updated pattern
+    FastLED.show();
+
+    // Adjust the delay to control the speed of the effect
+    delay(2); // Modify for smoother or faster movement
+  }
+
+  // FastLED.clear(); // Turn off LEDs after the effect is finished
+  // FastLED.show();
+}
+
+/*
+  Create a moving effect with groups of 100 LEDs alternating between blue and green.
+*/
+
 void movingGroupEffect(CRGB* leds, int numLeds) {
   static int offset = 0; // Tracks the current position of the pattern
 
-  int groupSize = 30; // Number of LEDs in each group
+  int groupSize = 25; // Number of LEDs in each group
   for (int i = 0; i < numLeds; i++) {
     // Calculate the group index based on the current offset
     int groupIndex = ((i + offset) / groupSize) % 2;
