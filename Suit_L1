@@ -175,7 +175,7 @@ blackout(1800);//  setColor(CRGB::Yellow,2000);
 // blackout(2000);//  setColor(CRGB::Yellow,2000);
  blackout(3000);
  // Only gloves........
- blackout(4000); // setColor(CRGB::Red,4000);  // for 4 sec t = 279 - 285
+ //blackout(4000); // setColor(CRGB::Red,4000);  // for 4 sec t = 279 - 285
   blackout(1000);   // t = 286 - 287
 multicolorRandomBlinkingEffectForSeconds(5.8);
 /////===================song 6==========
@@ -193,9 +193,10 @@ blackout(4500);
   blackout(2500);
   //delay(15000);  
   // Flag Design in last (Orange - White - Green)......
-  blinkLedsForDuration(CRGB::Orange, 15, 2000);
-  setColor(CRGB::Orange,5000);
+  blinkLedsForDuration(CRGB::Green, 15, 2000);
+  setColor(CRGB::Green,5000);
 }
+
 void newEffect(unsigned long durationMillis) {
     unsigned long startTime = millis(); // Record the start time
 
