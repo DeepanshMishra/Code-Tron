@@ -59,7 +59,7 @@ blackout(6000);   // for 5 sec t = 0 - 5 s
   // FastLED.show();
   // delay(2000);     
   runEffectForDuration(2000); // for 4 sec
-  blackout(3700);
+  blackout(3900);
   setColor(CRGB::Blue,500);  // t = 41 s
   //blackout(4800);       // t = 42,43,44 sec
 
@@ -67,7 +67,7 @@ blackout(6000);   // for 5 sec t = 0 - 5 s
    orangeShadesEffect(lowerLeds, NUM_LOWER_LEDS);  // fire shades effect for lower body
    FastLED.show();
    delay(800); //////////////////==============================
-   blackout(4700);
+   blackout(5200);
   setColor(CRGB::Yellow,1000);  
   blackout(2100);
   setColor(CRGB::Blue,2000);
@@ -85,7 +85,7 @@ blackout(6000);   // for 5 sec t = 0 - 5 s
   multicolorRandomBlinkingEffectForSeconds(8);
 
   //song 2
-  blackout(1600);    // t = 101 , 102 s
+  blackout(600);    // t = 101 , 102 s
     
   blinkLedsForDuration(CRGB::Orange, 15, 3000); // Blink in  Orange for 8 sec t = 103 - 110
    blackout(6600);
@@ -111,16 +111,14 @@ blackout(6000);   // for 5 sec t = 0 - 5 s
   blackout(4000);
   setColor(CRGB::Blue,10000); // for 13 s. t = 180 - 192
   
-  blackout(3600);
-
    //.........song 3 started................
   blackout(14500);   // for 2 sec... t = 193,194 s
   
    setColor(CRGB::Aqua,15000); // for 36 sec t = 195 - 234 s
    blinkLedsForDuration(CRGB::Aqua, 15, 1000);
    setColor(CRGB::Aqua,6000);
-
-
+   blackout(4000);
+  
    
  //  ............... 4 song started ................
    // RGB trail effect for 7 sec at t = 235 - 241
@@ -143,24 +141,24 @@ blackout(6000);   // for 5 sec t = 0 - 5 s
 
 
 //............. song 5 started.................
-blackout(3500);
-  setColor(CRGB::Yellow,3500);  // t = 268 - 270 
-  setColor(CRGB::Purple,6500);    // for 6 sec t = 271
+// blackout(3500);
+//   setColor(CRGB::Yellow,3500);  // t = 268 - 270 
+//   setColor(CRGB::Purple,6500);    // for 6 sec t = 271
           
-setColor(CRGB::Yellow,2000);
- blackout(3600);
- blinkLedsForDuration(CRGB::Yellow, 15, 2000);
- setColor(CRGB::Yellow,2000);
- blackout(3600);          // for 7 s.. t = 272 - 278
- blinkLedsForDuration(CRGB::Yellow, 15, 2000);
- blackout(1000);
- //blinkLedsForDuration(CRGB::Yellow, 15, 2000);
- // Only gloves........
-  lightSpecificRanges(upperLeds, NUM_UPPER_LEDS);
-    FastLED.show(); // Refresh LED colors
-    delay(4000);  // for 4 sec t = 279 - 285
-  blackout(3000);   // t = 286 - 287
-multicolorRandomBlinkingEffectForSeconds(4.8);
+// setColor(CRGB::Yellow,2000);
+//  blackout(3600);
+//  blinkLedsForDuration(CRGB::Yellow, 15, 2000);
+//  setColor(CRGB::Yellow,2000);
+//  blackout(3600);          // for 7 s.. t = 272 - 278
+//  blinkLedsForDuration(CRGB::Yellow, 15, 2000);
+//  blackout(1000);
+//  //blinkLedsForDuration(CRGB::Yellow, 15, 2000);
+//  // Only gloves........
+//   lightSpecificRanges(upperLeds, NUM_UPPER_LEDS);
+//     FastLED.show(); // Refresh LED colors
+//     delay(4000);  // for 4 sec t = 279 - 285
+//   blackout(3000);   // t = 286 - 287
+// multicolorRandomBlinkingEffectForSeconds(4.8);
 
 //........... song 6 started...................
  blackout(2000);
