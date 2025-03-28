@@ -29,8 +29,7 @@ void setup() {
 }
 
 void loop() {
-  
-  blackout(13200);   // for 13 sec t = 0 - 13.2 s
+    blackout(13200);   // for 13 sec t = 0 - 13.2 s
   
   setColor(CRGB::Green,3500);  // t = 13.3 to 16.8
  
@@ -44,7 +43,7 @@ void loop() {
   blackout(30); 
   setColor(CRGB::Green,150);         
   //setColor(CRGB::Red,1000);  // t = 25,26 sec
-  blackout(7500);       //  for 6 sec... t = 27 - 32
+  blackout(7750);       //  for 6 sec... t = 27 - 32
   // Half - half body transition with green blue color
   runEffectForDuration(7800);   // t = 33 - 39
   //delay(2400);      // for 2 sec t = 40,41s
@@ -60,12 +59,12 @@ void loop() {
   blackout(1200);
   setColor(CRGB::Blue,2900); // for 4 sec...  t = 51 - 54
   // in any suit at random
-  blackout(4000);
+  blackout(4200);
   
   lightUpLower(CRGB::Purple);
   blackout(500);
 
-  blackout(1700);   // for 6 sec t = 55 - 60
+  blackout(2000);   // for 6 sec t = 55 - 60
   setColor(CRGB::Red,5000); // for 5 sec... t = 61-65
    // for special effect for 3 sec.. t = 66 - 68
   specialEffect(3000);
@@ -80,24 +79,21 @@ void loop() {
   delay(1000);
   setColor(CRGB::Blue,1000);
   specialEffect(9000);
-
-
- 
-  blackout(4000);    // fro 4 sec... t = 80-83
+  // blackout(4000);    // fro 4 sec... t = 80-83
    
-    // for special effect for 2 sec.. t = 84 -85
+  //   // for special effect for 2 sec.. t = 84 -85
     
-   specialEffect(2000);
+  //  specialEffect(2000);
   
-  blackout(2000);  // t = 86 - 87
-  setColor(CRGB::Blue,2000);  // for 2 sec t = 88-89 s
+  // blackout(2000);  // t = 86 - 87
+  // setColor(CRGB::Blue,2000);  // for 2 sec t = 88-89 s
 
-    // for special effect for 11 sec.. t = 90 - 100
+  //   // for special effect for 11 sec.. t = 90 - 100
     
-   specialEffect(11000);
+  //  specialEffect(11000);
    //////=========song one end ==================//////
-    //song 2 
-    blackout(4200);
+  //song 2 
+    blackout(4000);
    blinkLedsForDuration(CRGB::Orange, 15, 2600); // Blink in  Orange for 8 sec t = 103 - 110
     blackout(2000);
    setColor(CRGB::DarkOrange,5000);  //  for 7 sec... t = 111 - 117
@@ -117,25 +113,25 @@ void loop() {
    rainbowEffect(lowerLeds, NUM_LOWER_LEDS);  // Rainbow effect for lower body
    delay(13500); // for 15 sec t = 155 - 163 s
    //setColor(CRGB::Green,4000); // for 6 sec..  t = 164 - 169
-   blackout(1500); 
-   setColor(CRGB::Red,5000); // for 3 sec.. t = 168 - 170 sec...
+   blackout(2000); 
+   setColor(CRGB::Red,4000); // for 3 sec.. t = 168 - 170 sec...
    blinkLedsForDuration(CRGB::Purple, 15, 9000); // for 9 s.. t = 171 - 179
    blackout(2500);
    setColor(CRGB::Blue,11000); // for 13 s. t = 180 - 192
-  //song 2 complete
+  //song 2 complete//.............................
  blackout(8600);   // for 2 sec... t = 193,194 s
   
-   setColor(CRGB::Aqua,21000); // for 36 sec t = 195 - 234 s
+   setColor(CRGB::Aqua,22000); // for 36 sec t = 195 - 234 s
    blinkLedsForDuration(CRGB::Aqua, 15, 1000);
-   setColor(CRGB::Aqua,6000);
-   
+   setColor(CRGB::Aqua,5000);
+  // blackout(4000);
 //song 3 complete
 
   // song 4 started............
-    blackout(4500);
+    blackout(4700);
   // RGB trail effect for 7 sec at t = 235 - 241
    newEffect(7000);
-     blackout(1600);   // t = 242
+    blackout(1600);   // t = 242
    setColor(CRGB::Yellow,200);  // t = 243
     ///blackout(200);
    blackout(1300);   // t = 244  
@@ -158,28 +154,28 @@ void loop() {
   blinkLedsForDuration(CRGB::Green, 15, 3000);   // t = 271
  blackout(200);          // t = 273
  /////////==========song_5==========          
-  blackout(2700);
-  setColor(CRGB::Yellow,4300);  // t = 268 - 270 
-  setColor(CRGB::Purple,6500);    // for 6 sec t = 271
-   blackout(2000);
-  blinkLedsForDuration(CRGB::Yellow, 15, 2000);
-// blackout(2000);//  setColor(CRGB::Yellow,2000);
- blackout(1800);          
- blinkLedsForDuration(CRGB::Yellow, 15, 1800);
-blackout(1800);//  setColor(CRGB::Yellow,2000);
-//  blackout(2000);
-  blinkLedsForDuration(CRGB::Yellow, 15, 2000);
-// blackout(2000);//  setColor(CRGB::Yellow,2000);
- blackout(1800);          
- blinkLedsForDuration(CRGB::Yellow, 15, 1800);
-// blackout(2000);//  setColor(CRGB::Yellow,2000);
- blackout(3000);
- // Only gloves........
- //blackout(4000); // setColor(CRGB::Red,4000);  // for 4 sec t = 279 - 285
-  blackout(1000);   // t = 286 - 287
-multicolorRandomBlinkingEffectForSeconds(5.8);
+//   blackout(2700);
+//   setColor(CRGB::Yellow,4300);  // t = 268 - 270 
+//   setColor(CRGB::Purple,6500);    // for 6 sec t = 271
+//    blackout(2000);
+//   blinkLedsForDuration(CRGB::Yellow, 15, 2000);
+// // blackout(2000);//  setColor(CRGB::Yellow,2000);
+//  blackout(1800);          
+//  blinkLedsForDuration(CRGB::Yellow, 15, 1800);
+// blackout(1800);//  setColor(CRGB::Yellow,2000);
+// //  blackout(2000);
+//   blinkLedsForDuration(CRGB::Yellow, 15, 2000);
+// // blackout(2000);//  setColor(CRGB::Yellow,2000);
+//  blackout(1800);          
+//  blinkLedsForDuration(CRGB::Yellow, 15, 1800);
+// // blackout(2000);//  setColor(CRGB::Yellow,2000);
+//  blackout(3000);
+//  // Only gloves........
+//  //blackout(4000); // setColor(CRGB::Red,4000);  // for 4 sec t = 279 - 285
+//   blackout(1000);   // t = 286 - 287
+// multicolorRandomBlinkingEffectForSeconds(5.8);
 /////===================song 6==========
-blackout(4500);
+blackout(4000);
   setColor(CRGB::Red,2000);
   blackout(5000);
   setColor(CRGB::Green,8000);
