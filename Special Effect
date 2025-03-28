@@ -1,0 +1,52 @@
+// Favourite Effect of all time.........
+#include <FastLED.h>
+
+#define UPPER_PIN  D4
+#define LOWER_PIN  D3
+#define NUM_UPPER_LEDS  600  // Number of LEDs in the upper body
+#define NUM_LOWER_LEDS  500  // Number of LEDs in the lower body
+#define BRIGHTNESS 250 
+#define LED_TYPE WS2812B
+#define COLOR_ORDER GRB
+
+CRGB upperLeds[NUM_UPPER_LEDS];
+CRGB lowerLeds[NUM_LOWER_LEDS];
+void setup() {
+    FastLED.addLeds<LED_TYPE, UPPER_PIN, COLOR_ORDER>(upperLeds, NUM_UPPER_LEDS);
+    FastLED.addLeds<LED_TYPE, LOWER_PIN, COLOR_ORDER>(lowerLeds, NUM_LOWER_LEDS);
+    FastLED.setBrightness(BRIGHTNESS);
+    FastLED.clear();
+    FastLED.show();
+}
+void newEffect() {
+        for (int i = 0; i < NUM_UPPER_LEDS; i+=10) {
+           uint8_t hue = (i * 255 / NUM_UPPER_LEDS + millis() / 10) % 255;
+            upperLeds[i] = CHSV(hue, 255, 255); // Apply color to upper LEDs
+            upperLeds[i+1] = CHSV(hue, 255, 255);
+            upperLeds[i+2] = CHSV(hue, 255, 255);
+            upperLeds[i+3] = CHSV(hue, 255, 255);
+            upperLeds[i+4] = CHSV(hue, 255, 255);
+            upperLeds[i+5] = CHSV(hue, 255, 255);
+            upperLeds[i+6] = CHSV(hue, 255, 255);
+            upperLeds[i+7] = CHSV(hue, 255, 255);
+            upperLeds[i+8] = CHSV(hue, 255, 255);
+            upperLeds[i+9] = CHSV(hue, 255, 255);
+             hue++;
+        }
+        for (int i = 0; i < NUM_LOWER_LEDS; i+=10) {
+            // Calculate a color from the HSV model for a moving effect
+            uint8_t hue = (i * 255 / NUM_LOWER_LEDS + millis() / 10) % 255;
+            lowerLeds[i] = CHSV(hue, 255, 255); // Apply color to lower LEDs
+             lowerLeds[i+1] = CHSV(hue, 255, 255); 
+              lowerLeds[i+2] = CHSV(hue, 255, 255); 
+               lowerLeds[i+3] = CHSV(hue, 255, 255); 
+                lowerLeds[i+4] = CHSV(hue, 255, 255); 
+             lowerLeds[i+5] = CHSV(hue, 255, 255); 
+              lowerLeds[i+6] = CHSV(hue, 255, 255); 
+               lowerLeds[i+7] = CHSV(hue, 255, 255); 
+                lowerLeds[i+8] = CHSV(hue, 255, 255); 
+                 lowerLeds[i+9] = CHSV(hue, 255, 255); 
+             hue++;
+        } FastLED.show();     
+}
+void loop() {newEffect();}
